@@ -1,0 +1,15 @@
+.button{
+  border-radius: 8px;
+  border-width: medium;
+  padding: 0 1.2em;
+  font-weight: 500;
+  font-family: inherit;
+}
+
+.button:hover {
+  border-color: #04051a;
+}
+.button:focus,
+.button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}

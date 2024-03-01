@@ -1,0 +1,23 @@
+.button {
+  border-end-end-radius: 8px;
+  border-start-end-radius: 8px;
+  border-width: medium;
+  padding: 0 1.2em;
+  margin-right: 2em;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+}
+.button:hover {
+  border-color: #04051a;
+}
+.button:focus,
+.button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+.input{
+  border-start-start-radius: 8px;
+  border-end-start-radius: 8px;
+  font-family: inherit;
+}

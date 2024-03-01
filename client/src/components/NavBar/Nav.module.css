@@ -1,0 +1,32 @@
+.nav {
+  padding: 10px 10px;
+  background-color: rgba(143, 163, 244, 0.299);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  z-index: 0;
+}
+
+.buttons{
+  display: flex;
+  justify-content: flex-start; 
+}
+
+.button{
+  border-radius: 8px;
+  border-width: medium;
+  padding: 0 1.2em;
+  font-weight: 500;
+  font-family: inherit;
+}
+
+.button:hover {
+  border-color: #04051a;
+}
+.button:focus,
+.button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}

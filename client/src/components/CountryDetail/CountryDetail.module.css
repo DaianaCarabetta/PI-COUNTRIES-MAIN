@@ -1,0 +1,29 @@
+.countryDetail {
+  display: flex;
+  margin: 20px;
+  padding-right:20px ;
+  color: #fff;
+  backdrop-filter: blur(8px);
+}
+
+.detailImage {
+  height: 300px;
+  width: 500px;
+  border-radius: 5px;
+  margin: 20px;
+}
+
+.detailContent {
+  flex: 1; 
+}
+
+.detailTitle {
+  margin-bottom: 10px;
+  font-size: xxx-large;
+  text-shadow: 5px 5px 3px rgb(28 75 161);
+}
+
+.body {
+  text-align: start;
+  line-height: 1;
+}
