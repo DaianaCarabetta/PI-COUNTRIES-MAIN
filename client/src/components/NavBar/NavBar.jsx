@@ -5,6 +5,7 @@ import style from './Nav.module.css';
 
 const NavBar = () => {
   const location = useLocation();
+  const hideSearchBar = location.pathname.startsWith('/detail/') || location.pathname === '/create_activity';
 
   const handleButtonClick = (route) => {
     return () => {
@@ -24,7 +25,7 @@ const NavBar = () => {
           <button className={style.button}>Create Activity</button>
         </Link>
       </div>
-      <SearchBar />
+      {!hideSearchBar && <SearchBar />}
     </nav>
   );
 };

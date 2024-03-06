@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { connect, useDispatch } from "react-redux";
 import { searchCountry } from '../../redux/actions/actions.countries'
-
 import style from './SearchBar.module.css';
 
 const SearchBar = () => {

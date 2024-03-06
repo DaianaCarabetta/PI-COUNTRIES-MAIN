@@ -11,8 +11,7 @@ const Card = ({country}) => {
         <img className={style.image} src={flagImage} alt={`${name} flag`}/>
         <h3 className={style.title}>{name}</h3>
         <p className={style.subtitle}>{continent}</p>
-      </Link>
-      
+      </Link> 
     </div>
   )
 }

@@ -24,8 +24,8 @@ const Form = ({ countries }) => {
   const handleChange = (event) => {
     const property = event.target.name;
     const value = event.target.value;
-    setForm({ ...form, [property]: value });
     setErrors({ ...errors, [property]: '' });
+    setForm({ ...form, [property]: value });
   };
 
   const handleCountryChange = (event) => {
@@ -94,6 +94,7 @@ const Form = ({ countries }) => {
           <label className={style.label}>Duration:</label>
           <div className={style.durationInput}>
             <input
+              min="1"
               className={style.input}
               type="number"
               name="duration"

@@ -16,9 +16,12 @@ export const FETCH_COUNTRIES_REQUEST = "FETCH_COUNTRIES_REQUEST";
 export const FETCH_COUNTRIES_SUCCESS = "FETCH_COUNTRIES_SUCCESS";
 export const FETCH_COUNTRIES_FAILURE = "FETCH_COUNTRIES_FAILURE";
 
-export const FETCH_COUNTRY_BY_NAME_REQUEST = "FETCH_COUNTRY_BY_NAME_REQUEST";
-export const FETCH_COUNTRY_BY_NAME_SUCCESS = "FETCH_COUNTRY_BY_NAME_SUCCESS";
-export const FETCH_COUNTRY_BY_NAME_FAILURE = "FETCH_COUNTRY_BY_NAME_FAILURE";
+export const FETCH_COUNTRIES_BY_NAME_REQUEST =
+  "FETCH_COUNTRIES_BY_NAME_REQUEST";
+export const FETCH_COUNTRIES_BY_NAME_SUCCESS =
+  "FETCH_COUNTRIES_BY_NAME_SUCCESS";
+export const FETCH_COUNTRIES_BY_NAME_FAILURE =
+  "FETCH_COUNTRIES_BY_NAME_FAILURE";
 
 export const SET_SELECTED_CONTINENT = "SET_SELECTED_CONTINENT";
 export const SET_SELECTED_ACTIVITY = "SET_SELECTED_ACTIVITY";
@@ -43,14 +46,14 @@ export const fetchCountriesFailure = (error) => ({
 });
 
 export const fetchCountryByNameRequest = () => ({
-  type: FETCH_COUNTRY_BY_NAME_REQUEST,
+  type: FETCH_COUNTRIES_BY_NAME_REQUEST,
 });
-export const fetchCountryByNameSuccess = (country) => ({
-  type: FETCH_COUNTRY_BY_NAME_SUCCESS,
-  payload: country,
+export const fetchCountryByNameSuccess = (countries) => ({
+  type: FETCH_COUNTRIES_BY_NAME_SUCCESS,
+  payload: countries,
 });
 export const fetchCountryByNameFailure = (error) => ({
-  type: FETCH_COUNTRY_BY_NAME_FAILURE,
+  type: FETCH_COUNTRIES_BY_NAME_FAILURE,
   payload: error,
 });
 
@@ -104,6 +107,7 @@ export const getCountry = (code) => async (dispatch) => {
 };
 
 export const listCountries = (params) => async (dispatch) => {
+  dispatch(fetchCountriesRequest());
   try {
     const countries = await getCountries(params);
     dispatch(fetchCountriesSuccess(countries));
@@ -144,12 +148,12 @@ export const calculateCurrentCountries = () => (dispatch, getState) => {
   );
 
   dispatch({
-    type: "UPDATE_CURRENT_COUNTRIES",
+    type: UPDATE_CURRENT_COUNTRIES,
     payload: currentCountries,
   });
 
   dispatch({
-    type: "UPDATE_TOTAL_FILTERED_COUNTRIES",
+    type: UPDATE_TOTAL_FILTERED_COUNTRIES,
     payload: sortedCountries.length,
   });
 };
@@ -175,17 +179,23 @@ const applyFilters = (countries, selectedContinent, selectedActivity) => {
 const applySort = (countries, selectedNameOrder, selectedPopulationOrder) => {
   let sortedCountries = [...countries];
 
-  if (selectedNameOrder === "name_asc") {
-    sortedCountries.sort((a, b) => a.name.localeCompare(b.name));
-  } else if (selectedNameOrder === "name_desc") {
-    sortedCountries.sort((a, b) => b.name.localeCompare(a.name));
-  }
+  sortedCountries.sort((a, b) => {
+    if (selectedNameOrder) {
+      const nameComparison =
+        selectedNameOrder === "name_asc"
+          ? a.name.localeCompare(b.name)
+          : b.name.localeCompare(a.name);
+      if (nameComparison !== 0) return nameComparison;
+    }
 
-  if (selectedPopulationOrder === "population_asc") {
-    sortedCountries.sort((a, b) => a.population - b.population);
-  } else if (selectedPopulationOrder === "population_desc") {
-    sortedCountries.sort((a, b) => b.population - a.population);
-  }
+    if (selectedPopulationOrder) {
+      return selectedPopulationOrder === "population_asc"
+        ? a.population - b.population
+        : b.population - a.population;
+    }
+
+    return 0;
+  });
 
   return sortedCountries;
 };

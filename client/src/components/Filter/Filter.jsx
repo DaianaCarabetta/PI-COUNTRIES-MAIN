@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './Filter.module.css';
 import { useDispatch } from 'react-redux';
 import {
@@ -26,11 +26,8 @@ const Filter = ({ continents, activities }) => {
   };
 
   const handleSort = () => {
-    if (nameOrder) {
-      dispatch(setSelectedNameOrder(nameOrder));
-    } else if (populationOrder) {
-      dispatch(setSelectedPopulationOrder(populationOrder));
-    }
+    dispatch(setSelectedNameOrder(nameOrder));
+    dispatch(setSelectedPopulationOrder(populationOrder));
     dispatch(setCurrentPage(1));
     dispatch(calculateCurrentCountries());
   };

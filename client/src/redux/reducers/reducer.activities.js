@@ -37,7 +37,7 @@ const activitiesReducer = (state = initialState, action) => {
     case FETCH_ACTIVITIES_SUCCESS:
       return {
         ...state,
-        activities: [...state.activities, ...action.payload],
+        activities: [...action.payload],
       };
 
     case FETCH_ACTIVITIES_FAILURE:

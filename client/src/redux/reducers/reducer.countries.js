@@ -5,9 +5,9 @@ import {
   FETCH_COUNTRY_BY_CODE_REQUEST,
   FETCH_COUNTRY_BY_CODE_SUCCESS,
   FETCH_COUNTRY_BY_CODE_FAILURE,
-  FETCH_COUNTRY_BY_NAME_REQUEST,
-  FETCH_COUNTRY_BY_NAME_SUCCESS,
-  FETCH_COUNTRY_BY_NAME_FAILURE,
+  FETCH_COUNTRIES_BY_NAME_REQUEST,
+  FETCH_COUNTRIES_BY_NAME_SUCCESS,
+  FETCH_COUNTRIES_BY_NAME_FAILURE,
   SET_CURRENT_PAGE,
   UPDATE_CURRENT_COUNTRIES,
   UPDATE_TOTAL_FILTERED_COUNTRIES,
@@ -37,10 +37,10 @@ const initialState = {
 
 const countriesReducer = (state = initialState, action) => {
   switch (action.type) {
-    case FETCH_COUNTRY_BY_NAME_REQUEST:
+    case FETCH_COUNTRIES_BY_NAME_REQUEST:
       return { ...state, loading: true, error: null };
 
-    case FETCH_COUNTRY_BY_NAME_SUCCESS:
+    case FETCH_COUNTRIES_BY_NAME_SUCCESS:
       return {
         ...state,
         loading: false,
@@ -49,7 +49,7 @@ const countriesReducer = (state = initialState, action) => {
         currentPage: 1,
       };
 
-    case FETCH_COUNTRY_BY_NAME_FAILURE:
+    case FETCH_COUNTRIES_BY_NAME_FAILURE:
       return {
         ...state,
         loading: false,
@@ -83,7 +83,7 @@ const countriesReducer = (state = initialState, action) => {
         ...state,
         loading: false,
         error: null,
-        countries: [...state.countries, ...action.payload],
+        countries: [...action.payload],
       };
 
     case FETCH_COUNTRIES_FAILURE:
