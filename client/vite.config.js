@@ -5,6 +5,7 @@ dotenv.config();
 
 export default defineConfig({
   server: {
+    host: process.env.HOST,
     port: process.env.PORT,
   },
   define: {
