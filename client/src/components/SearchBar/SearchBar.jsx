@@ -27,9 +27,16 @@ const SearchBar = () => {
     setSearchValue('');
   };
 
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter') {
+      onSearch(searchValue);
+      setSearchValue('');
+    }
+  };
+
   return (
     <div>
-      <input className={style.input} value={searchValue} onChange={handleChange} type='text' />
+      <input className={style.input} onKeyDown={handleKeyDown} value={searchValue} onChange={handleChange} type='text' />
       <button className={style.button} onClick={handleClick}>SEARCH</button>
     </div>
   )

@@ -19,7 +19,7 @@ import {
 
 const initialState = {
   countries: [],
-  loading: false,
+  loader: true,
   error: null,
   currentPage: 1,
   countriesPerPage: 10,
@@ -38,12 +38,12 @@ const initialState = {
 const countriesReducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_COUNTRIES_BY_NAME_REQUEST:
-      return { ...state, loading: true, error: null };
+      return { ...state, loader: true, error: null };
 
     case FETCH_COUNTRIES_BY_NAME_SUCCESS:
       return {
         ...state,
-        loading: false,
+        loader: false,
         error: null,
         currentCountries: action.payload,
         currentPage: 1,
@@ -52,17 +52,17 @@ const countriesReducer = (state = initialState, action) => {
     case FETCH_COUNTRIES_BY_NAME_FAILURE:
       return {
         ...state,
-        loading: false,
+        loader: false,
         error: action.payload,
       };
 
     case FETCH_COUNTRY_BY_CODE_REQUEST:
-      return { ...state, loading: true, error: null };
+      return { ...state, loader: true, error: null };
 
     case FETCH_COUNTRY_BY_CODE_SUCCESS:
       return {
         ...state,
-        loading: false,
+        loader: false,
         selectedCountry: action.payload,
         error: null,
       };
@@ -70,18 +70,18 @@ const countriesReducer = (state = initialState, action) => {
     case FETCH_COUNTRY_BY_CODE_FAILURE:
       return {
         ...state,
-        loading: false,
+        loader: false,
         selectedCountry: null,
         error: action.payload,
       };
 
     case FETCH_COUNTRIES_REQUEST:
-      return { ...state, loading: true, error: null };
+      return { ...state, loader: true, error: null };
 
     case FETCH_COUNTRIES_SUCCESS:
       return {
         ...state,
-        loading: false,
+        loader: false,
         error: null,
         countries: [...action.payload],
       };
@@ -89,7 +89,7 @@ const countriesReducer = (state = initialState, action) => {
     case FETCH_COUNTRIES_FAILURE:
       return {
         ...state,
-        loading: false,
+        loader: false,
         countries: null,
         error: action.payload,
       };

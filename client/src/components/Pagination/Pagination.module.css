@@ -9,11 +9,12 @@
 
 .pagination button {
   padding: 8px 16px;
-  margin: 15px; 
+  margin: 15px 0; 
   border: 1px solid #ccc;
   background-color: #f9f9f9;
   color: #333;
   cursor: pointer;
+  border-radius: 2px;
 }
 
 .pagination button:hover {
@@ -31,7 +32,16 @@
 }
 
 .pagination span {
-  color:#fff;
-  backdrop-filter: blur(8px);
+  font-size:medium;
+  font-weight: 600;
+  -webkit-text-stroke: 1px #fff(250, 246, 246, 0.322);
+   color: white;
+  text-shadow: 
+  1px 1px 3px #070d18, 0 0 1em #070d18, 0 0 0.2em #070d18,
+  1px 1px 3px #070d18, 0 0 1em #070d18, 0 0 0.2em #070d18,
+  1px 1px 2px #070d18, 0 0 1em blue, 0 0 0.2em blue,
+  1px 1px 2px #070d18, 0 0 1em blue, 0 0 0.2em blue;
+  padding: 5px 15px;
+  backdrop-filter: blur(2px);
 }
 

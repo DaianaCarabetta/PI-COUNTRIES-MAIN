@@ -12,10 +12,19 @@ const Landing = ({setShowNavbar}) => {
   }, [setShowNavbar]);
 
   return (
-    <div>
-      <Link to={'/home'}>
-          <button className={style.button}>WELCOME</button>
-      </Link>
+    <div className={style.backgroundImage}>
+      <div className={style.container}>
+        <div className={style.countryInfo}>
+          <div className={style.logoContainer}>
+            <p className={style.mainText}>DISCOVER THE COUNTRIES</p>
+          </div>
+        </div>
+        <div className={style.homeLink}>
+          <Link to={'/home'}>
+              <button className={style.actionButton}>TRAVEL THE WORLD</button>
+          </Link>
+        </div>
+      </div>
     </div>
   )
 }

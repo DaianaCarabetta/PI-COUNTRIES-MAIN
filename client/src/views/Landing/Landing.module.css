@@ -1,15 +1,59 @@
-.button{
-  border-radius: 8px;
-  border-width: medium;
-  padding: 0 1.2em;
-  font-weight: 500;
-  font-family: inherit;
+.logo {
+  max-width: 100%;
+  height: auto;
+  padding: 1rem;
 }
 
-.button:hover {
-  border-color: #04051a;
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 2rem 1rem;
+  
 }
-.button:focus,
-.button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+
+.logoContainer {
+  color: aliceblue;
+  flex-wrap: wrap;
+  justify-content: center;
+  backdrop-filter: blur(8px);
+}
+
+.countryInfo {
+  width: 100%;
+  padding: 1rem;
+  align-items: center;
+}
+
+.homeLink {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.actionButton {
+  max-width: 100%;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border-radius: 1rem;
+  background-color: white;
+  color: rgb(55, 55, 55);
+  font-weight: bold;
+  border: none;
+}
+
+.socialMediaIcon {
+  height: auto;
+  padding: 0.5rem;
+}
+
+.footer {
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.mainText {
+  font-size: calc(2rem + 2vw);
+  text-align: center;
 }
