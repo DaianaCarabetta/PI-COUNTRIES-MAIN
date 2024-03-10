@@ -45,7 +45,7 @@ const countriesReducer = (state = initialState, action) => {
         ...state,
         loader: false,
         error: null,
-        currentCountries: action.payload,
+        countries: action.payload,
         currentPage: 1,
       };
 

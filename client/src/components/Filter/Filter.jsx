@@ -7,7 +7,8 @@ import {
   setSelectedContinent,
   setSelectedNameOrder,
   setSelectedPopulationOrder,
-  calculateCurrentCountries
+  calculateCurrentCountries,
+  listCountries
 } from '../../redux/actions/actions.countries';
 
 const Filter = ({ continents, activities }) => {
@@ -44,7 +45,7 @@ const Filter = ({ continents, activities }) => {
     dispatch(setSelectedPopulationOrder(''));
 
     dispatch(setCurrentPage(1));
-    dispatch(calculateCurrentCountries());
+    dispatch(listCountries());
   };
 
   return (

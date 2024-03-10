@@ -18,9 +18,10 @@
 }
 
 .detailTitle {
+  margin-top: 10px;
   margin-bottom: 10px;
   font-size: xxx-large;
-  text-shadow: 5px 5px 3px rgb(28 75 161);
+  text-shadow: 5px 5px 3px rgb(18 34 48);
 }
 
 .body {
