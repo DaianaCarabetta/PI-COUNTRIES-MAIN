@@ -22,8 +22,6 @@ const Home = () => {
   const activities = useSelector(state => state.activities.activities);
   const continents = [...new Set(countries.map(country => country.continent))];
 
-  debugger
-
   useEffect(() => {
     dispatch(listCountries());
     dispatch(listActivities());

@@ -12,6 +12,7 @@ const Form = ({ countries }) => {
   const [errors, setErrors] = useState({});
   const [showModal, setShowModal] = useState(false);
   const [modalMessage, setModalMessage] = useState('');
+  const [modalStyle, setModalStyle] = useState('');
 
   const [form, setForm] = useState({
     name: '',
@@ -46,9 +47,11 @@ const Form = ({ countries }) => {
         countries: [],
       });
       setModalMessage('Activity created successfully!');
+      setModalStyle('success')
     } else {
       setErrors(validationErrors);
       setModalMessage('Failed to create activity. Please check your inputs.');
+      setModalStyle('error')
     }
     setShowModal(true);
   };
@@ -132,7 +135,7 @@ const Form = ({ countries }) => {
       </form>
       {showModal && (
         <div className={style.modal}>
-          <div className={style.modalContent}>
+          <div className={`${style.modalContent} ${modalStyle === 'success' ? style.modalContentSuccess : style.modalContentError}`}>
             <span className={style.close} onClick={closeModal}>&times;</span>
             <p>{modalMessage}</p>
             <button onClick={closeModal}>Close</button>

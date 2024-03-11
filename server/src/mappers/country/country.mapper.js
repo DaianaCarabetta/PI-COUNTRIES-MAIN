@@ -10,7 +10,9 @@ function map(countryData) {
       area: countryData.area,
       population: countryData.population,
     };
-  } catch (error) {}
+  } catch (error) {
+    throw error;
+  }
 }
 
 module.exports = {
