@@ -15,7 +15,7 @@ export default function CountryDetail( { country } ) {
           <p><strong>Capital:</strong> {capital}</p>
           <p><strong>Subregion:</strong> {subregion}</p>
           <p><strong>Population:</strong> {population}</p>
-          <p><strong>Area:</strong> {area}</p>
+          <p><strong>Area:</strong> {area} km<sup>2</sup></p>
 
           { Activities.length > 0 ? (
           <div>
@@ -24,10 +24,7 @@ export default function CountryDetail( { country } ) {
               {Activities.map((activity) => (
                 <li key={activity.id}>
                   {activity.name}
-                  {/* <p><strong>Name: </strong>{activity.name}</p>
-                  <p><strong>Duration: </strong>{activity.duration}</p>
-                  <p><strong>Season: </strong>{activity.season}</p>
-                  <p><strong>Difficulty: </strong>{activity.difficulty}</p> */}
+                  
                 </li>
               ))}
             </ul>

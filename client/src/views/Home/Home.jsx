@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { listCountries } from '../../redux/actions/actions.countries'
 import { listActivities } from '../../redux/actions/actions.activities'
 import Loader from '../../components/Loader/Loader';
+import NotFound from '../../components/NotFound/NotFound';
 import Filter from '../../components/Filter/Filter';
 import Pagination from '../../components/Pagination/Pagination';
 import { calculateCurrentCountries } from '../../redux/actions/actions.countries';
@@ -39,7 +40,11 @@ const Home = () => {
           <Filter continents={continents} activities={activities}/>
         </header>
         <div>
+          { currentCountries.length > 0 ? (
           <Cards countries={currentCountries} activities={activities} continents={continents}/>
+          ) : (
+            <NotFound/>
+          ) }
         </div>
         <footer>
           <Pagination currentPage={currentPage} totalPages={totalPages} />
